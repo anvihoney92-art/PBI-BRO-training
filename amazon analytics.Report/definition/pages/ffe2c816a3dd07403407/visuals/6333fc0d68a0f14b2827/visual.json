@@ -1,15 +1,15 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
-  "name": "d10ae64dbd5aa4704631",
+  "name": "6333fc0d68a0f14b2827",
   "position": {
-    "x": 24.888888888888889,
-    "y": 0,
-    "z": 0,
+    "x": 26.666666666666668,
+    "y": 325.33333333333331,
+    "z": 1,
     "height": 394.66666666666669,
     "width": 1136
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "donutChart",
     "query": {
       "queryState": {
         "Category": {
@@ -84,7 +84,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "5b151aa431dc85e47149",
+        "name": "11d7b32b384c0e7a0a20",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "test_data"
+              }
+            },
+            "Property": "Name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b9ba81bc4516ff387e97",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -101,20 +115,6 @@
           }
         },
         "type": "Advanced"
-      },
-      {
-        "name": "037ffcee7f1f5af7d920",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "test_data"
-              }
-            },
-            "Property": "Name"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }
