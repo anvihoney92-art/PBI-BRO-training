@@ -1,0 +1,32 @@
+table test_data
+	lineageTag: c62f4dbc-b8ea-4bb5-a27e-dc1d0cbd814f
+
+	column ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 81b3a46f-a2e9-406b-afee-5a05d79b56b6
+		summarizeBy: count
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 39f7be9b-aab9-4d76-ad71-9c3dc703dcaf
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition test_data = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Power BI\CI CD\Github\PBI-BRO-training\test_data.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ID", Int64.Type}, {"Name", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+
